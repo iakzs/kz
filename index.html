@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - k_z.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #121212;
+            color: white;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        h1, h2 {
+            text-align: center;
+        }
+        
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            --tooltip-bg: #333;
+            --tooltip-text: #fff;
+        }
+        
+        .light-mode {
+            background-color: #f0f0f0;
+            color: #212121;
+            --tooltip-bg: #f0f0f0;
+            --tooltip-text: #212121;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            animation: fadeIn 1s ease-in;
+            background-color: rgba(30, 30, 30, 0.8);
+            transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        
+        .container:hover {
+            background-color: rgba(40, 40, 40, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .light-mode {
+            background-color: #f0f0f0;
+            --container-bg: rgba(240, 240, 240, 0.8);
+        }
+        .columns {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          animation: fadeIn 1s ease-in;
+          background-color: rgba(30, 30, 30, 0.8);
+          color: #e0e0e0;
+          margin-bottom: 20px;
+          margin-right: 20px;
+        } 
+        .light-mode .columns {
+          background-color: #f0f0f0;
+          color: #212121;
+        }
+        .columns h1 {
+          font-size: 32px;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+        .columns p {
+          font-size: 18px;
+          line-height: 1.5;
+          margin-bottom: 20px;
+        }
+        .column {
+            flex: 1 1 300px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: rgba(30, 30, 30, 0.8);
+            transition: background-color 0.2s ease-in-out;
+        }
+        
+        .column:hover {
+            background-color: #555;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .socials-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .socials-row a {
+            margin: 0 10px;
+            transition: transform 0.2s;
+        }
+        .socials-row img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            transition: transform 0.2s ease-in-out;
+        }
+        .socials-row img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .socials-row img:hover::after {
+            content: attr(alt);
+            position: absolute;
+            background-color: var(--tooltip-bg);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--tooltip-text);
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+        .socials-row svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+            transition: transform 0.2s ease-in-out;
+        }
+        .socials-row svg:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .socials-row svg:hover::after {
+            content: attr(alt);
+            position: absolute;
+            background-color: var(--tooltip-bg);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--tooltip-text);
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+        #modeToggle {
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+            border: none;
+            background: none;
+            color: inherit;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <button id="modeToggle">🌙</button>
+    <h1>🌟 About Me</h1>
+    <div class="container">
+        <div class="column">
+            <h2>About Me</h2>
+            <p>I am a person that likes coding, many sports, using FL Studio 20, and sleeping.</p>
+        </div>
+        <div class="column">
+            <h2>💬 Connect with Me</h2>
+            <a href="https://discord.com/users/622795838032314388">
+                <img src="https://lanyard.cnrad.dev/api/622795838032314388" alt="Discord Profile" style="width: 100%;">
+            </a>
+            <p>Feel free to reach out to me on Discord!</p>
+        </div>
+        <div class="column">
+            <h2>📊 GitHub Stats</h2>
+            <div align="center">
+                <img height="180em" src="https://github-readme-stats.vercel.app/api?username=iakzs&show_icons=true&line_height=27&count_private=true&theme=react" alt="iakzs's GitHub Stats" />
+                <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iakzs&hide=Makefile&theme=react" alt="Top Languages" />
+            </div>
+        </div>
+        <div class="column">
+            <h2>🛠️ Skills</h2>
+            <a href="https://skillicons.dev">
+                <img src="https://skillicons.dev/icons?i=ae,apple,arduino,blender,bots,c,cloudflare,cmake,cpp,cs,css,discord,discordjs,docker,flask,git,github,html,js,kali,lua,mongodb,mysql,nextjs,nginx,nodejs,npm,postgres,powershell,prisma,ps,py,qt,react,redis,redux,robloxstudio,sentry,sqlite,ubuntu,unity,visualstudio,vscode,windows,workers" alt="My Skills" style="width: 100%;">
+            </a>
+        </div>
+    </div>
+    <h2>🌐 My Socials</h2>
+    <div class="socials-row">
+        <a href="https://github.com/iakzs" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/180px-GitHub_Invertocat_Logo.svg.png" alt="GitHub">
+        </a>
+        <a href="https://instagram.com/thatkoslz" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/250px-Instagram_logo_2022.svg.png" alt="Instagram">
+        </a>
+        <a href="https://youtube.com/@koslz" target="_blank">
+            <img src="https://cdn3.iconfinder.com/data/icons/social-network-30/512/social-06-512.png" alt="YouTube">
+        </a>
+        <a href="https://open.spotify.com/artist/5zXdBAiB2dA426fdo9WVbu" target="_blank">
+            <img src="http://pluspng.com/img-png/spotify-logo-png-open-2000.png" alt="Spotify">
+        </a>
+        <a href="https://www.tiktok.com/thatkoslz" target="_blank">
+            <img src="https://static.vecteezy.com/system/resources/previews/016/716/450/original/tiktok-icon-free-png.png" alt="TikTok">
+        </a>
+        <a href="https://launcher.store.epicgames.com/u/5ad2cb2e4b3344aca2d49c3158c18df2" target="_blank">
+            <img src="https://logodownload.org/wp-content/uploads/2020/10/epic-games-logo-1.png" alt="Epic Games">
+        </a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1181315256505618462" target="_blank">
+            <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="My Discord bot, epic-bot">
+        </a>
+        <a href="https://psnprofiles.com/omaigussnes1" target="_blank">
+            <img src="https://www.pngall.com/wp-content/uploads/13/PlayStation-Logo-PNG-Cutout-1-180x180.png" alt="PlayStation">
+        </a>
+        <a href="https://account.xbox.com/profile?xr=whenurpro" target="_blank">
+            <img src="https://www.pngall.com/wp-content/uploads/13/Xbox-Logo-PNG-File-180x180.png" alt="Xbox">
+        </a>
+        <a href="https://bamb.cl" target="_blank">
+            <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="bamb.cl">
+        </a>
+        <a href="http://gedagediga.lol" target="_blank">
+            <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="gedagediga.lol">
+        </a>
+        <a href="https://iakzs.dev" target="_blank">
+            <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="iakzs.dev">
+        </a>
+        <a href="https://iakzs.xyz" target="_blank">
+            <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="iakzs.xyz">
+        </a>
+        <a href="https://bamb.cl/epic-bot" target="_blank">
+            <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="add my epic bot called epic-bot!">
+        </a>
+    </div>
+    <script>
+        const modeToggle = document.getElementById('modeToggle');
+        modeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            document.body.classList.toggle('dark-mode');
+            modeToggle.textContent = document.body.classList.contains('light-mode') ? '🌙' : '🌞';
+        });
+    </script>
+</body>
+</html>
