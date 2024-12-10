@@ -3,20 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - k_z.</title>
+    <meta name="description" content="Made by iakzs for cool users">
+    <meta name="keywords" content="iakzs, portfolio, github, githubpages, iforgor, kz, koslz">
+    <meta name="author" content="iakzs">
+    <meta property="og:title" content="pani.c">
+    <meta property="og:description" content="iakzs' domain (github user)">
+    <meta property="og:image" content="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg">
+    <title>iakzs.dev | owned by iakzs on github</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --transition-speed: 0.3s;
+            --hover-scale: 1.02;
+            --container-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #121212;
             color: white;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: all var(--transition-speed) ease;
+            overflow-x: hidden;
         }
         
         h1, h2 {
             text-align: center;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        h1:hover, h2:hover {
+            transform: scale(1.05);
         }
         
         .dark-mode {
@@ -39,134 +58,183 @@
             justify-content: space-around;
             animation: fadeIn 1s ease-in;
             background-color: rgba(30, 30, 30, 0.8);
-            transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: all var(--transition-speed) ease-in-out;
+            border-radius: 15px;
+            box-shadow: var(--container-shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
         
         .container:hover {
             background-color: rgba(40, 40, 40, 0.8);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: var(--hover-shadow);
+            transform: scale(var(--hover-scale));
         }
-        .light-mode {
-            background-color: #f0f0f0;
-            --container-bg: rgba(240, 240, 240, 0.8);
-        }
-        .columns {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-around;
-          animation: fadeIn 1s ease-in;
-          background-color: rgba(30, 30, 30, 0.8);
-          color: #e0e0e0;
-          margin-bottom: 20px;
-          margin-right: 20px;
-        } 
-        .light-mode .columns {
-          background-color: #f0f0f0;
-          color: #212121;
-        }
-        .columns h1 {
-          font-size: 32px;
-          font-weight: bold;
-          margin-bottom: 20px;
-        }
-        .columns p {
-          font-size: 18px;
-          line-height: 1.5;
-          margin-bottom: 20px;
-        }
+
         .column {
             flex: 1 1 300px;
             margin: 20px;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             background-color: rgba(30, 30, 30, 0.8);
-            transition: background-color 0.2s ease-in-out;
+            transition: all var(--transition-speed) ease-in-out;
+            box-shadow: var(--container-shadow);
         }
         
         .column:hover {
             background-color: #555;
-            transition: background-color 0.2s ease-in-out;
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
         }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+            gap: 10px;
+            padding: 15px;
+        }
+
+        .skill-icon {
+            transition: all var(--transition-speed) ease;
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.2);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+
         .socials-row {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            gap: 20px;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 0.8);
+            border-radius: 15px;
+            box-shadow: var(--container-shadow);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
-        .socials-row a {
-            margin: 0 10px;
-            transition: transform 0.2s;
-        }
+        
         .socials-row img {
             width: 32px;
             height: 32px;
             object-fit: contain;
-            transition: transform 0.2s ease-in-out;
+            transition: transform var(--transition-speed) ease;
         }
-        .socials-row img:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .socials-row img:hover::after {
-            content: attr(alt);
-            position: absolute;
-            background-color: var(--tooltip-bg);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            font-size: 16px;
-            font-weight: bold;
-            color: var(--tooltip-text);
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-        }
-        .socials-row svg {
-            width: 32px;
+
+        .socials-row a {
+            margin: 0 10px;
+            position: relative;
             height: 32px;
-            fill: currentColor;
-            transition: transform 0.2s ease-in-out;
+            transition: all var(--transition-speed) ease;
         }
-        .socials-row svg:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+        .socials-row a:hover {
+            transform: scale(1.2) rotate(5deg);
         }
-        .socials-row svg:hover::after {
-            content: attr(alt);
+
+        .socials-row a::before {
+            content: attr(data-tooltip);
             position: absolute;
-            background-color: var(--tooltip-bg);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            font-size: 16px;
-            font-weight: bold;
-            color: var(--tooltip-text);
-            top: 100%;
+            bottom: -30px;
             left: 50%;
             transform: translateX(-50%);
+            padding: 5px 10px;
+            background-color: var(--tooltip-bg);
+            color: var(--tooltip-text);
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-speed) ease;
             white-space: nowrap;
+            z-index: 1000;
         }
+
+        .socials-row a:hover::before {
+            opacity: 1;
+            visibility: visible;
+            bottom: -40px;
+        }
+
         #modeToggle {
             cursor: pointer;
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 20px;
-            font-size: 20px;
+            font-size: 24px;
             border: none;
-            background: none;
+            background: rgba(30, 30, 30, 0.8);
             color: inherit;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: var(--container-shadow);
+            transition: all var(--transition-speed) ease;
+            z-index: 1000;
         }
+
+        #modeToggle:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: var(--hover-shadow);
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .column {
+                flex: 1 1 100%;
+                margin: 10px;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+            }
         }
     </style>
 </head>
 <body class="dark-mode">
-    <button id="modeToggle">🌙</button>
+    <button id="modeToggle" title="Toggle dark/light mode">🌙</button>
     <h1>🌟 About Me</h1>
     <div class="container">
         <div class="column">
@@ -189,62 +257,95 @@
         </div>
         <div class="column">
             <h2>🛠️ Skills</h2>
-            <a href="https://skillicons.dev">
-                <img src="https://skillicons.dev/icons?i=ae,apple,arduino,blender,bots,c,cloudflare,cmake,cpp,cs,css,discord,discordjs,docker,flask,git,github,html,js,kali,lua,mongodb,mysql,nextjs,nginx,nodejs,npm,postgres,powershell,prisma,ps,py,qt,react,redis,redux,robloxstudio,sentry,sqlite,ubuntu,unity,visualstudio,vscode,windows,workers" alt="My Skills" style="width: 100%;">
-            </a>
+            <div class="skills-grid">
+                <a href="https://skillicons.dev">
+                    <img src="https://skillicons.dev/icons?i=ae,apple,arduino,blender,bots,c,cloudflare,cmake,cpp,cs,css,discord,discordjs,docker,flask,git,github,html,js,kali,lua,mongodb,mysql,nextjs,nginx,nodejs,npm,postgres,powershell,prisma,ps,py,qt,react,redis,redux,robloxstudio,sentry,sqlite,ubuntu,unity,visualstudio,vscode,windows,workers" alt="My Skills" class="skill-icon">
+                </a>
+            </div>
         </div>
     </div>
     <h2>🌐 My Socials</h2>
     <div class="socials-row">
-        <a href="https://github.com/iakzs" target="_blank">
+        <a href="https://github.com/iakzs" target="_blank" data-tooltip="GitHub">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/180px-GitHub_Invertocat_Logo.svg.png" alt="GitHub">
         </a>
-        <a href="https://instagram.com/thatkoslz" target="_blank">
+        <a href="https://instagram.com/thatkoslz" target="_blank" data-tooltip="Instagram">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/250px-Instagram_logo_2022.svg.png" alt="Instagram">
         </a>
-        <a href="https://youtube.com/@koslz" target="_blank">
+        <a href="https://youtube.com/@koslz" target="_blank" data-tooltip="YouTube">
             <img src="https://cdn3.iconfinder.com/data/icons/social-network-30/512/social-06-512.png" alt="YouTube">
         </a>
-        <a href="https://open.spotify.com/artist/5zXdBAiB2dA426fdo9WVbu" target="_blank">
+        <a href="https://open.spotify.com/artist/5zXdBAiB2dA426fdo9WVbu" target="_blank" data-tooltip="Spotify">
             <img src="http://pluspng.com/img-png/spotify-logo-png-open-2000.png" alt="Spotify">
         </a>
-        <a href="https://www.tiktok.com/thatkoslz" target="_blank">
+        <a href="https://www.tiktok.com/thatkoslz" target="_blank" data-tooltip="TikTok">
             <img src="https://static.vecteezy.com/system/resources/previews/016/716/450/original/tiktok-icon-free-png.png" alt="TikTok">
         </a>
-        <a href="https://launcher.store.epicgames.com/u/5ad2cb2e4b3344aca2d49c3158c18df2" target="_blank">
+        <a href="https://launcher.store.epicgames.com/u/5ad2cb2e4b3344aca2d49c3158c18df2" target="_blank" data-tooltip="Epic Games">
             <img src="https://logodownload.org/wp-content/uploads/2020/10/epic-games-logo-1.png" alt="Epic Games">
         </a>
-        <a href="https://discord.com/oauth2/authorize?client_id=1181315256505618462" target="_blank">
+        <a href="https://discord.com/oauth2/authorize?client_id=1181315256505618462" target="_blank" data-tooltip="My Discord bot, epic-bot">
             <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="My Discord bot, epic-bot">
         </a>
-        <a href="https://psnprofiles.com/omaigussnes1" target="_blank">
+        <a href="https://psnprofiles.com/omaigussnes1" target="_blank" data-tooltip="PlayStation">
             <img src="https://www.pngall.com/wp-content/uploads/13/PlayStation-Logo-PNG-Cutout-1-180x180.png" alt="PlayStation">
         </a>
-        <a href="https://account.xbox.com/profile?xr=whenurpro" target="_blank">
+        <a href="https://account.xbox.com/profile?xr=whenurpro" target="_blank" data-tooltip="Xbox">
             <img src="https://www.pngall.com/wp-content/uploads/13/Xbox-Logo-PNG-File-180x180.png" alt="Xbox">
         </a>
-        <a href="https://bamb.cl" target="_blank">
+        <a href="https://bamb.cl" target="_blank" data-tooltip="bamb.cl">
             <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="bamb.cl">
         </a>
-        <a href="http://gedagediga.lol" target="_blank">
+        <a href="http://gedagediga.lol" target="_blank" data-tooltip="gedagediga.lol">
             <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="gedagediga.lol">
         </a>
-        <a href="https://iakzs.dev" target="_blank">
+        <a href="https://iakzs.dev" target="_blank" data-tooltip="iakzs.dev">
             <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="iakzs.dev">
         </a>
-        <a href="https://iakzs.xyz" target="_blank">
+        <a href="https://iakzs.xyz" target="_blank" data-tooltip="iakzs.xyz">
             <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="iakzs.xyz">
         </a>
-        <a href="https://bamb.cl/epic-bot" target="_blank">
-            <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="add my epic bot called epic-bot!">
+        <a href="http://pani.c" target="_blank" data-tooltip="pani.c">
+            <img src="https://img.iakzs.xyz/e585e0a1396783fdf42c.svg" alt="pani.c">
         </a>
     </div>
+
     <script>
-        const modeToggle = document.getElementById('modeToggle');
-        modeToggle.addEventListener('click', () => {
+        document.querySelectorAll('img[src*="github-readme-stats"], img[src*="lanyard"]').forEach(img => {
+            img.parentElement.classList.add('loading');
+            img.onload = () => img.parentElement.classList.remove('loading');
+        });
+
+        const toggle = document.getElementById('modeToggle');
+        toggle.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
             document.body.classList.toggle('dark-mode');
-            modeToggle.textContent = document.body.classList.contains('light-mode') ? '🌙' : '🌞';
+            toggle.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+                toggle.textContent = '☀️';
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.column').forEach(column => {
+            column.style.opacity = '0';
+            column.style.transform = 'translateY(20px)';
+            observer.observe(column);
         });
     </script>
 </body>
